@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/reactExamples/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -13,5 +14,12 @@ export default defineConfig({
   server: {
     port: 9521, // 指定端口号
     open: true, // 自动打开浏览器
+    proxy: {
+      '/api': {
+        target: 'https://ashuai.work/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
+      },
+    },
   },
 })

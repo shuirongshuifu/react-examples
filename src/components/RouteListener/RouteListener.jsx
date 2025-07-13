@@ -7,8 +7,8 @@ export default function RouteListener() {
 
     useEffect(() => {
         if (prevLocation !== null) {
-            console.log('newRoute:', location)
-            console.log('oldRoute:', prevLocation)
+            // console.log('newRoute:', location)
+            // console.log('oldRoute:', prevLocation)
         }
         setPrevLocation(location)
     }, [location])

@@ -4,23 +4,23 @@ import TabStatus from './pages/TabStatus/TabStatus'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
-
+const basePath = '/reactExamples'
 
 export const MenuItemRouters = [
     {
-        key: '/',
+        key: `${basePath}/`,
         label: '首页',
         icon: <AndroidOutlined />,
         element: <Home />
     },
     {
-        key: '/crud',
+        key: `${basePath}/crud`,
         label: '增删改查',
         icon: <AndroidOutlined />,
         element: <Crud />
     },
     {
-        key: '/tabStatus',
+        key: `${basePath}/tabStatus`,
         label: '标签状态',
         icon: <AndroidOutlined />,
         element: <TabStatus />

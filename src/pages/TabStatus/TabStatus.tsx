@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Tabs } from 'antd';
+/**
+ * useLocation用于获取完成地址栏信息
+ * useSearchParams用于获取查询query信息，并返回可读写的searchParams对象
+ * */
+import { useSearchParams } from 'react-router-dom'
 import type { TabsProps } from 'antd';
-
-import { useSearchParams } from 'react-router-dom';
 
 const items: TabsProps['items'] = [
   {
@@ -22,32 +25,32 @@ const items: TabsProps['items'] = [
   },
 ];
 
-const TabStatus = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+export default function TabStatus() {
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  // 从 URL 参数中获取当前 tab，如果没有则默认为 '1'
-  const tabValue = searchParams.get('tab') || '1';
-  const [activeKey, setActiveKey] = useState(tabValue);
+  // 1. 默认高亮第一个tab
+  const [activeKey, setActiveKey] = useState('1')
 
-  // 当 URL 参数变化时，更新 activeKey
   useEffect(() => {
-    const currentTab = searchParams.get('tab') || '1';
-    setActiveKey(currentTab);
-  }, [searchParams]);
+    // 2. 当页面didMounted的时候获取地址栏tab参数，并修改tab高亮
+    const queryObj = Object.fromEntries(searchParams.entries())
+    setActiveKey(queryObj.tab || '1')
+    // 3. 后续当地址栏参数发生变化的时候，也去获取地址栏tab参数，并修改tab高亮
+  }, [searchParams]) // 也可以只单独监听tab [searchParams.get('tab')] 不过最好提取出来
 
   const onChange = (key: string) => {
-    console.log('切换到 tab:', key);
-    setActiveKey(key);
-
-    // 更新 URL 参数，保持当前 tab 状态
-    setSearchParams(prev => {
-      const newParams = new URLSearchParams(prev);
-      newParams.set('tab', key);
-      return newParams;
-    }, { replace: true });
+    console.log('onChange', key);
+    // 4. 当tab高亮发生变化时，修改地址栏参数
+    const queryObj = Object.fromEntries(searchParams.entries())
+    queryObj['tab'] = key
+    setSearchParams(queryObj)
+    // setSearchParams({tab: key}) // 注意不要只修改tab把别的地址栏参数覆盖掉了
   };
 
-  return <Tabs activeKey={activeKey} items={items} onChange={onChange} />;
-};
-
-export default TabStatus;
+  return (
+    <div>
+      <h2>TabStatus——刷新依旧保留当前tab状态</h2>
+      <Tabs activeKey={activeKey} items={items} onChange={onChange} />
+    </div>
+  )
+}
