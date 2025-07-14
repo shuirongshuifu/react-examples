@@ -1,6 +1,7 @@
 import Home from './pages/Home/Home'
 import Crud from './pages/Crud/Crud'
 import TabStatus from './pages/TabStatus/TabStatus'
+import AnimationEvent from './pages/AnimationEvent/AnimationEvent'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -24,6 +25,12 @@ export const MenuItemRouters = [
         label: '标签状态',
         icon: <AndroidOutlined />,
         element: <TabStatus />
+    },
+    {
+        key: `${basePath}/animationEvent`,
+        label: '动画事件',
+        icon: <AndroidOutlined />,
+        element: <AnimationEvent />
     },
 ]
 

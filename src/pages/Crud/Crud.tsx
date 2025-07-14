@@ -103,7 +103,7 @@ const Crud: React.FC = () => {
       rowKey="id"
       pagination={false}
       onChange={handleTableChange}
-      scroll={{ y: 500 }}
+      scroll={{ y: '64vh' }}
       rowSelection={rowSelection}
     />
     <Pagination

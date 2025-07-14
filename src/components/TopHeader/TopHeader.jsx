@@ -2,6 +2,7 @@ import './TopHeader.css'; // 引入样式文件
 import { Select, Space } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import GithubIcon from '@/components/GithubIcon/GithubIcon'; // 假设你有一个GithubIcon组件
 
 export default function TopHeader({ MenuItemRouters }) {
     const [value, setValue] = useState('/'); // 默认选中项
@@ -28,6 +29,9 @@ export default function TopHeader({ MenuItemRouters }) {
                     fieldNames={{ label: 'label', value: 'key' }}
                     options={MenuItemRouters}
                 />
+            </Space>
+            <Space wrap>
+                <a href="https://github.com/shuirongshuifu/react-examples" target='_blank'><GithubIcon></GithubIcon></a>
             </Space>
         </div>
     )
