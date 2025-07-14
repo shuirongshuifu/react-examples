@@ -3,7 +3,7 @@ import { Button, Input, message, Modal } from 'antd';
 import { downExcelTempFn, restoreDataFn, uploadExcelFn, selectDeleteFn, selectExportFn } from '@/api/crud/crud';
 import { downloadFile } from '@/utils';
 
-const Btns: React.FC<{ selectedRowKeys: number[], update: Function }> = ({ selectedRowKeys, update }) => {
+const Btns: React.FC<{ selectedRowKeys: number[], update: Function, addOpenDialog: () => void }> = ({ selectedRowKeys, update, addOpenDialog }) => {
 
     const clickDownExcelTemplate = async () => {
         try {
@@ -72,7 +72,7 @@ const Btns: React.FC<{ selectedRowKeys: number[], update: Function }> = ({ selec
     return (
         <div style={{ marginBottom: 10 }}>
             <div style={{ display: 'flex', gap: 10 }}>
-                <Button type="primary">新增</Button>
+                <Button type="primary" onClick={addOpenDialog}>新增</Button>
                 <Button type="primary" onClick={clickSelectExport} disabled={selectedRowKeys.length === 0}>勾选导出</Button>
                 <Button type="primary" onClick={clickSelectDelete} disabled={selectedRowKeys.length === 0}>删除勾选</Button>
                 <Button type="primary" onClick={clickDownExcelTemplate}>下载模板</Button>

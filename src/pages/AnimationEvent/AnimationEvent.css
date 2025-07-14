@@ -1,0 +1,60 @@
+.inputContainer {
+    padding: 0 12px;
+}
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.errorInput {
+    /* 动画执行时间为1.5s，执行3次，动画函数为cubic-bezier(0.36, 0.07, 0.19, 0.97) */
+    animation: shakeLeftRight 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
+}
+
+@keyframes shakeLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-20px);
+    }
+
+    20% {
+        transform: translateX(20px);
+    }
+
+    30% {
+        transform: translateX(-15px);
+    }
+
+    40% {
+        transform: translateX(15px);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    60% {
+        transform: translateX(10px);
+    }
+
+    70% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+
+    90% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

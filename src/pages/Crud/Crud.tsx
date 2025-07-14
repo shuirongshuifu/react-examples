@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Table, Pagination, Button, Modal, message } from 'antd';
 import type { TableProps } from 'antd';
 import { getTableDataFn, getTotalCountFn, deleteDataFn } from '@/api/crud/crud';
 import { QueryInfo, ColumnType, restColumns } from './data';
 import Btns from './Btns';
+import Dialog from './Dialog';
 
 const Crud: React.FC = () => {
 
@@ -38,6 +39,8 @@ const Crud: React.FC = () => {
   });
 
   const [total, setTotal] = useState(0);
+
+  const dialogRef = useRef<any>(null);
 
   useEffect(() => {
     fetchData();
@@ -77,7 +80,7 @@ const Crud: React.FC = () => {
   }, [queryInfo.searchWord]);
 
   const handleEdit = (record: ColumnType) => {
-    console.log(record);
+    dialogRef.current.openDialog(record);
   }
 
   const handleDelete = (record: ColumnType) => {
@@ -95,8 +98,12 @@ const Crud: React.FC = () => {
     });
   }
 
+  const addOpenDialog = () => {
+    dialogRef.current.openDialog();
+  }
+
   return <div style={{ width: '96%' }}>
-    <Btns selectedRowKeys={selectedRowKeys} update={update} />
+    <Btns selectedRowKeys={selectedRowKeys} update={update} addOpenDialog={addOpenDialog} />
     <Table<ColumnType>
       columns={columns}
       dataSource={tableData}
@@ -116,6 +123,7 @@ const Crud: React.FC = () => {
       onChange={handlePageChange}
       showSizeChanger
     />
+    <Dialog ref={dialogRef} />
   </div>
 };
 
