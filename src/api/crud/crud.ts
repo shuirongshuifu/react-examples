@@ -1,11 +1,11 @@
 import { get, post } from '../api/api';
 
 interface queryInfo {
-    pageIndex?: number;
-    pageSize?: number;
-    sortWord?: string;
-    sortOrder?: string;
-    searchWord?: string;
+    pageIndex: number;
+    pageSize: number;
+    sortWord: string;
+    sortOrder: string;
+    searchWord: string;
 }
 
 interface res {
@@ -60,4 +60,14 @@ export const selectExportFn = (ids: string) => {
     return post('/exportExcel', { ids }, {
         responseType: 'blob'
     }) as Promise<Blob>;
+}
+
+// 新增数据
+export const addDataFn = (data: Record<string, any>) => {
+    return post('/addData', data) as Promise<res>;
+}
+
+// 编辑数据
+export const editDataFn = (data: Record<string, any>) => {
+    return post('/editData', data) as Promise<res>;
 }

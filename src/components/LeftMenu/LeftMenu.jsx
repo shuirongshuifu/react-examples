@@ -8,27 +8,28 @@ import './LeftMenu.css'; // 引入样式文件
 // 左侧菜单导航区
 const LeftMenu = ({ MenuItemRouters }) => {
     const [collapsed, setCollapsed] = useState(false); // 菜单收缩状态
-    const [width, setWidth] = useState(240); // 菜单宽度
+
     const navigate = useNavigate();
     const onSelect = (e) => {
         // console.log('click ', e);
         navigate(e.key)
     };
     const setCollapsedFn = () => {
-        setCollapsed(!collapsed);
-        if (collapsed) {
-            setWidth(240);
-        } else {
-            setWidth(80);
-        }
+        const status = !collapsed;
+        setCollapsed(status);
+        sessionStorage.setItem('collapsed', status)
     }
     const location = useLocation();
+
     useEffect(() => {
-        // 开发环境，开始严格模式StrictMode，会打印两次
-        // console.log('useEffect');
+        const status = sessionStorage.getItem('collapsed');
+        if (status) {
+            setCollapsed(status === 'true' ? true : false);
+        }
     }, [])
+
     return (
-        <div className='leftMenu' style={{ width: width, height: '100%' }}>
+        <div className='leftMenu' style={{ width: collapsed ? 80 : 240, height: '100%' }}>
             <div className='menuLogoBox'>
                 <img
                     className='menuLogo'
