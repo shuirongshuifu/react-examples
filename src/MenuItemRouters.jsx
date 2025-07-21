@@ -2,6 +2,7 @@ import Home from './pages/Home/Home'
 import Crud from './pages/Crud/Crud'
 import TabStatus from './pages/TabStatus/TabStatus'
 import AnimationEvent from './pages/AnimationEvent/AnimationEvent'
+import FormExample from './pages/FormExample/FormExample'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -31,6 +32,12 @@ export const MenuItemRouters = [
         label: '动画事件',
         icon: <AndroidOutlined />,
         element: <AnimationEvent />
+    },
+    {
+        key: `${basePath}/myForm`,
+        label: '二次封装表单',
+        icon: <AndroidOutlined />,
+        element: <FormExample />
     },
 ]
 
