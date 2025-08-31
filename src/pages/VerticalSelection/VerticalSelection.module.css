@@ -1,0 +1,48 @@
+.listBox {
+    padding: 24px;
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+.item {
+    box-sizing: border-box;
+    width: 120px;
+    padding: 6px 12px;
+    border: 1px solid #e9e9e9;
+    border-bottom: none;
+    cursor: cell;
+    user-select: none;
+    transition: all 0.3s;
+    color: #555;
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: #ccc;
+}
+
+.item:last-child {
+    border-bottom: 1px solid #e9e9e9;
+}
+
+/* 高亮 */
+.hl {
+    border-color: #409EFF;
+    color: #111;
+}
+
+/* 为选中的高亮项的下一项，补上一个上方的边框 */
+.hl+.item {
+    border-top: 1px solid #409EFF;
+}
+
+/* 最后一个选中的高亮项，补上一个底部的边框 */
+.hl:last-child {
+    border-bottom: 1px solid #409EFF;
+}
+
+/* 若是当前项和下一项都选中了，就把下一项的border-top清除掉即可 */
+.curAndNextSelected+.hl {
+    /* 障眼法，透明色清除，毕竟边框有一个像素的高度 */
+    border-top-color: transparent;
+}

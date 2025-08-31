@@ -4,6 +4,7 @@ import TabStatus from './pages/TabStatus/TabStatus'
 import AnimationEvent from './pages/AnimationEvent/AnimationEvent'
 import FormExample from './pages/FormExample/FormExample'
 import RightMenu from './pages/RightMenu/RightMenu'
+import VerticalSelection from './pages/VerticalSelection/VerticalSelection'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -45,6 +46,12 @@ export const MenuItemRouters = [
         label: '右键菜单',
         icon: <AndroidOutlined />,
         element: <RightMenu />
+    },
+    {
+        key: `${basePath}/verticalSelection`,
+        label: '竖向选中',
+        icon: <AndroidOutlined />,
+        element: <VerticalSelection />
     },
 ]
 
