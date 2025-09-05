@@ -18,7 +18,13 @@ export default defineConfig({
       '/api': {
         target: 'https://ashuai.work/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/api'),
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/ollama': {
+        target: 'https://ashuai.site',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ollama/, '/ollama'),
+        secure: false,
       },
     },
   },

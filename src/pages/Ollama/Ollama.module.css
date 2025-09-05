@@ -1,0 +1,54 @@
+.chatContainer {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    height: 400px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.messages {
+    padding: 15px;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+/* 用户输入的在右侧，ai回复的在左侧，报错居中 */
+.user { justify-content: flex-end; }
+.ai { justify-content: flex-start; }
+.error { justify-content: center; }
+
+.messageContent {
+    max-width: 70%;
+    padding: 10px 15px;
+    word-wrap: break-word;
+}
+
+.user .messageContent {
+    background-color: #1890ff;
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+}
+
+.ai .messageContent {
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 18px 18px 18px 4px;
+}
+
+.error .messageContent {
+    background-color: #fff2f0;
+    color: #ff4d4f;
+    border: 1px solid #ffccc7;
+    border-radius: 8px;
+}
+
+.emptyMessage {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px;
+}
