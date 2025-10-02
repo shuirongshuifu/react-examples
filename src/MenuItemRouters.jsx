@@ -6,6 +6,7 @@ import FormExample from './pages/FormExample/FormExample'
 import RightMenu from './pages/RightMenu/RightMenu'
 import VerticalSelection from './pages/VerticalSelection/VerticalSelection'
 import Ollama from './pages/Ollama/Ollama'
+import TrueFalse from './pages/TrueFalse/TrueFalse'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -59,6 +60,12 @@ export const MenuItemRouters = [
         label: 'Ollama',
         icon: <AndroidOutlined />,
         element: <Ollama />
+    },
+    {
+        key: `${basePath}/trueFalse`,
+        label: 'TrueFalse',
+        icon: <AndroidOutlined />,
+        element: <TrueFalse />
     },
 ]
 
