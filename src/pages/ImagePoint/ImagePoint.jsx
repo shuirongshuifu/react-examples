@@ -22,7 +22,7 @@ export default function ImagePoint() {
     };
 
     return (
-        <>
+        <div>
             <h2>图片区域打点</h2>
             <p>鼠标悬停在图片的矩形、多边形、圆形区域上查看高亮效果，点击查看信息</p>
             <img
@@ -58,6 +58,6 @@ export default function ImagePoint() {
                     title="多边形区域"
                 />
             </map>
-        </>
+        </div>
     )
 }
