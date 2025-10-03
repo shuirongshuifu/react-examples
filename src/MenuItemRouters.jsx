@@ -7,6 +7,7 @@ import RightMenu from './pages/RightMenu/RightMenu'
 import VerticalSelection from './pages/VerticalSelection/VerticalSelection'
 import Ollama from './pages/Ollama/Ollama'
 import TrueFalse from './pages/TrueFalse/TrueFalse'
+import ImagePoint from './pages/ImagePoint/ImagePoint'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -66,6 +67,12 @@ export const MenuItemRouters = [
         label: 'TrueFalse',
         icon: <AndroidOutlined />,
         element: <TrueFalse />
+    },
+    {
+        key: `${basePath}/imagePoint`,
+        label: '图片区域打点',
+        icon: <AndroidOutlined />,
+        element: <ImagePoint />
     },
 ]
 
