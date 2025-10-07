@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // 路由配置数据
 import { MenuItemRouters } from './MenuItemRouters';
@@ -9,6 +9,8 @@ import RightContent from './components/RightContent/RightContent';
 // 路由监听器
 // 这个组件是用来监听路由变化的
 import RouteListener from './components/RouteListener/RouteListener';
+// 版本更新提示组件
+import VersionUpdateCheck from './components/VersionUpdateCheck/VersionUpdateCheck.jsx';
 
 // 主应用组件
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <LeftMenu MenuItemRouters={MenuItemRouters} />
           <RightContent MenuItemRouters={MenuItemRouters} />
         </div>
+        {/* 版本更新提示 */}
+        <VersionUpdateCheck />
       </Router>
     </>
   )
