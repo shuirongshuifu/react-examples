@@ -8,6 +8,7 @@ import VerticalSelection from './pages/VerticalSelection/VerticalSelection'
 import Ollama from './pages/Ollama/Ollama'
 import TrueFalse from './pages/TrueFalse/TrueFalse'
 import ImagePoint from './pages/ImagePoint/ImagePoint'
+import Sse from './pages/Sse/Sse'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -73,6 +74,12 @@ export const MenuItemRouters = [
         label: '图片区域打点',
         icon: <AndroidOutlined />,
         element: <ImagePoint />
+    },
+    {
+        key: `${basePath}/sse`,
+        label: 'SSE',
+        icon: <AndroidOutlined />,
+        element: <Sse />
     },
 ]
 
