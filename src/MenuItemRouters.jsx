@@ -9,6 +9,7 @@ import Ollama from './pages/Ollama/Ollama'
 import TrueFalse from './pages/TrueFalse/TrueFalse'
 import ImagePoint from './pages/ImagePoint/ImagePoint'
 import Sse from './pages/Sse/Sse'
+import Sse2 from './pages/Sse2/Sse2'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -80,6 +81,12 @@ export const MenuItemRouters = [
         label: 'SSE',
         icon: <AndroidOutlined />,
         element: <Sse />
+    },
+    {
+        key: `${basePath}/sse2`,
+        label: 'SSE2',
+        icon: <AndroidOutlined />,
+        element: <Sse2 />
     },
 ]
 

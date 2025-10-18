@@ -1,0 +1,40 @@
+.article-container {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #1677ff;
+    min-height: 240px;
+}
+
+.article-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2d3748;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #1677ff;
+    margin-left: 2px;
+    /* 光标元素的底部与父元素的文本底部对齐 */
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
