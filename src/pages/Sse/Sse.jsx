@@ -86,8 +86,13 @@ export default function Sse() {
         // 监听后端自定义的end事件
         eventSource.addEventListener('end', (event) => {
             const data = JSON.parse(event.data)
-            setIsStreaming(false)
             console.log('SSE结束:', data)
+
+            // 等待所有Promise链完成后再设置isStreaming为false
+            // 防止see结束了，文字还没有打完，光标消失了
+            promiseChainRef.current = promiseChainRef.current.then(() => {
+                setIsStreaming(false)
+            })
 
             // 关闭连接
             eventSource.close()
@@ -122,7 +127,7 @@ export default function Sse() {
     }
 
     return (
-        <div>
+        <div style={{ width: '720px' }}>
             <div className="article-container">
                 <div className="article-text">
                     {articleText}
