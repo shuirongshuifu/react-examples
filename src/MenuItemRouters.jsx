@@ -10,6 +10,7 @@ import TrueFalse from './pages/TrueFalse/TrueFalse'
 import ImagePoint from './pages/ImagePoint/ImagePoint'
 import Sse from './pages/Sse/Sse'
 import Sse2 from './pages/Sse2/Sse2'
+import DynamicLoading from './pages/DynamicLoading/DynamicLoading'
 
 import { AndroidOutlined } from '@ant-design/icons';
 
@@ -87,6 +88,12 @@ export const MenuItemRouters = [
         label: 'SSE2',
         icon: <AndroidOutlined />,
         element: <Sse2 />
+    },
+    {
+        key: `${basePath}/dynamicLoading`,
+        label: '动态加载',
+        icon: <AndroidOutlined />,
+        element: <DynamicLoading />
     },
 ]
 
